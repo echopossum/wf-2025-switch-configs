@@ -1,0 +1,379 @@
+! device: core-02 (DCS-7050S-64, EOS-4.9.7)
+!
+! boot system flash:/EOS-4.9.7.swi
+!
+hostname core-02
+!
+qos map dscp 0 to traffic-class 0
+qos map dscp 1 to traffic-class 0
+qos map dscp 2 to traffic-class 0
+qos map dscp 3 to traffic-class 0
+qos map dscp 4 to traffic-class 0
+qos map dscp 5 to traffic-class 0
+qos map dscp 6 to traffic-class 0
+qos map dscp 7 to traffic-class 0
+qos map dscp 8 to traffic-class 4
+qos map dscp 16 to traffic-class 0
+qos map dscp 17 to traffic-class 0
+qos map dscp 18 to traffic-class 0
+qos map dscp 19 to traffic-class 0
+qos map dscp 20 to traffic-class 0
+qos map dscp 21 to traffic-class 0
+qos map dscp 22 to traffic-class 0
+qos map dscp 23 to traffic-class 0
+qos map dscp 24 to traffic-class 0
+qos map dscp 25 to traffic-class 0
+qos map dscp 26 to traffic-class 5
+qos map dscp 27 to traffic-class 0
+qos map dscp 28 to traffic-class 0
+qos map dscp 29 to traffic-class 0
+qos map dscp 30 to traffic-class 0
+qos map dscp 31 to traffic-class 0
+qos map dscp 32 to traffic-class 0
+qos map dscp 33 to traffic-class 0
+qos map dscp 34 to traffic-class 0
+qos map dscp 35 to traffic-class 0
+qos map dscp 36 to traffic-class 0
+qos map dscp 37 to traffic-class 0
+qos map dscp 38 to traffic-class 0
+qos map dscp 39 to traffic-class 0
+qos map dscp 40 to traffic-class 0
+qos map dscp 41 to traffic-class 0
+qos map dscp 42 to traffic-class 0
+qos map dscp 43 to traffic-class 0
+qos map dscp 44 to traffic-class 0
+qos map dscp 45 to traffic-class 0
+qos map dscp 46 to traffic-class 6
+qos map dscp 47 to traffic-class 0
+qos map dscp 48 to traffic-class 0
+qos map dscp 49 to traffic-class 0
+qos map dscp 50 to traffic-class 0
+qos map dscp 51 to traffic-class 0
+qos map dscp 52 to traffic-class 0
+qos map dscp 53 to traffic-class 0
+qos map dscp 54 to traffic-class 0
+qos map dscp 55 to traffic-class 0
+qos map dscp 57 to traffic-class 0
+qos map dscp 58 to traffic-class 0
+qos map dscp 59 to traffic-class 0
+qos map dscp 60 to traffic-class 0
+qos map dscp 61 to traffic-class 0
+qos map dscp 62 to traffic-class 0
+qos map dscp 63 to traffic-class 0
+!
+snmp-server community winterfest ro
+!
+spanning-tree mode rstp
+no spanning-tree vlan 4094
+spanning-tree priority 8192
+!
+no aaa root
+!
+username echo privilege 15 secret 5 $1$oILNmZIZ$WU.ppvIDYfMbiEJLnMZnW0
+username radio privilege 15 secret 5 $1$n7vbYRcr$eUsIEqAgeIz2KAVqNfqT10
+username alpha privilege 15 secret 5 $1$RrNbHSWc$KirdRebA7/mj.Cu5PQtE7/
+!
+vlan 10
+   name Shows
+!
+vlan 20
+   name Staff
+!
+vlan 30
+   name Gueat
+!
+vlan 66
+   name Phones
+!
+vlan 69
+   name Management
+!
+vlan 4094
+   trunk group m1peer
+!
+interface Port-Channel101
+   switchport mode trunk
+   mlag 101
+   qos trust dscp
+!
+interface Port-Channel102
+   switchport mode trunk
+   mlag 102
+   qos trust dscp
+!
+interface Port-Channel103
+   switchport mode trunk
+   mlag 103
+   qos trust dscp
+!
+interface Port-Channel104
+   switchport mode trunk
+   mlag 104
+   qos trust dscp
+!
+interface Port-Channel105
+   switchport mode trunk
+   mlag 105
+   qos trust dscp
+!
+interface Port-Channel106
+   switchport mode trunk
+   mlag 106
+   qos trust dscp
+!
+interface Port-Channel107
+   switchport mode trunk
+   mlag 107
+   qos trust dscp
+!
+interface Port-Channel108
+   switchport mode trunk
+   mlag 108
+   qos trust dscp
+!
+interface Port-Channel109
+   switchport mode trunk
+   mlag 109
+   qos trust dscp
+!
+interface Port-Channel110
+   switchport mode trunk
+   mlag 110
+   qos trust dscp
+!
+interface Port-Channel111
+   switchport mode trunk
+   mlag 111
+   qos trust dscp
+!
+interface Port-Channel112
+   switchport mode trunk
+   mlag 112
+   qos trust dscp
+!
+interface Port-Channel201
+   switchport mode trunk
+   switchport trunk group m1peer
+   qos trust dscp
+!
+interface Ethernet1
+   channel-group 101 mode active
+   qos trust dscp
+!
+interface Ethernet2
+   channel-group 102 mode active
+   qos trust dscp
+!
+interface Ethernet3
+   channel-group 103 mode active
+   qos trust dscp
+!
+interface Ethernet4
+   channel-group 104 mode active
+   qos trust dscp
+!
+interface Ethernet5
+   channel-group 105 mode active
+   qos trust dscp
+!
+interface Ethernet6
+   channel-group 106 mode active
+   qos trust dscp
+!
+interface Ethernet7
+   channel-group 107 mode active
+   qos trust dscp
+!
+interface Ethernet8
+   channel-group 108 mode active
+   qos trust dscp
+!
+interface Ethernet9
+   channel-group 109 mode active
+   qos trust dscp
+!
+interface Ethernet10
+   channel-group 110 mode active
+   qos trust dscp
+!
+interface Ethernet11
+   channel-group 111 mode active
+   qos trust dscp
+!
+interface Ethernet12
+   channel-group 112 mode active
+   qos trust dscp
+!
+interface Ethernet13
+   qos trust dscp
+!
+interface Ethernet14
+   qos trust dscp
+!
+interface Ethernet15
+   qos trust dscp
+!
+interface Ethernet16
+   qos trust dscp
+!
+interface Ethernet17
+   qos trust dscp
+!
+interface Ethernet18
+   qos trust dscp
+!
+interface Ethernet19
+   qos trust dscp
+!
+interface Ethernet20
+   qos trust dscp
+!
+interface Ethernet21
+   qos trust dscp
+!
+interface Ethernet22
+   qos trust dscp
+!
+interface Ethernet23
+   qos trust dscp
+!
+interface Ethernet24
+   qos trust dscp
+!
+interface Ethernet25
+   qos trust dscp
+!
+interface Ethernet26
+   qos trust dscp
+!
+interface Ethernet27
+   qos trust dscp
+!
+interface Ethernet28
+   qos trust dscp
+!
+interface Ethernet29
+   qos trust dscp
+!
+interface Ethernet30
+   qos trust dscp
+!
+interface Ethernet31
+   qos trust dscp
+!
+interface Ethernet32
+   qos trust dscp
+!
+interface Ethernet33
+   qos trust dscp
+!
+interface Ethernet34
+   qos trust dscp
+!
+interface Ethernet35
+   qos trust dscp
+!
+interface Ethernet36
+   qos trust dscp
+!
+interface Ethernet37
+   qos trust dscp
+!
+interface Ethernet38
+   qos trust dscp
+!
+interface Ethernet39
+   qos trust dscp
+!
+interface Ethernet40
+   qos trust dscp
+!
+interface Ethernet41
+   qos trust dscp
+!
+interface Ethernet42
+   qos trust dscp
+!
+interface Ethernet43
+   qos trust dscp
+!
+interface Ethernet44
+   qos trust dscp
+!
+interface Ethernet45
+   qos trust dscp
+!
+interface Ethernet46
+   qos trust dscp
+!
+interface Ethernet47
+   qos trust dscp
+!
+interface Ethernet48
+   qos trust dscp
+!
+interface Ethernet49/1
+   speed forced 40gfull
+   channel-group 201 mode active
+   qos trust dscp
+!
+interface Ethernet49/2
+!
+interface Ethernet49/3
+!
+interface Ethernet49/4
+!
+interface Ethernet50/1
+   speed forced 40gfull
+   channel-group 201 mode active
+   qos trust dscp
+!
+interface Ethernet50/2
+!
+interface Ethernet50/3
+!
+interface Ethernet50/4
+!
+interface Ethernet51/1
+   switchport access vlan 10
+   qos trust dscp
+!
+interface Ethernet51/2
+   switchport access vlan 10
+   qos trust dscp
+!
+interface Ethernet51/3
+   switchport access vlan 10
+   qos trust dscp
+!
+interface Ethernet51/4
+   switchport access vlan 10
+   qos trust dscp
+!
+interface Ethernet52/1
+!
+interface Ethernet52/2
+!
+interface Ethernet52/3
+!
+interface Ethernet52/4
+!
+interface Management1
+!
+interface Vlan69
+   ip address 10.69.69.3/24
+!
+interface Vlan4094
+   no autostate
+   ip address 10.0.0.2/30
+!
+no ip routing
+!
+mlag configuration
+   domain-id winterfest
+   local-interface Vlan4094
+   peer-address 10.0.0.1
+   peer-link Port-Channel201
+!
+!
+end
